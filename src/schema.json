@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "required": [
+    "IdentityPoolId",
+    "Roles"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "IdentityPoolId": {
+      "type": "string",
+      "pattern": "(\\w+-\\w+-\\d+):.*"
+    },
+    "Roles": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "authenticated": {
+          "type": "string",
+          "pattern": "arn:aws:iam::(\\d{12}):role/.*"
+        },
+        "unauthenticated": {
+          "type": "string",
+          "pattern": "arn:aws:iam::(\\d{12}):role/.*"
+        }
+      }
+    }
+  }
+}
